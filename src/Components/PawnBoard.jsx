@@ -3,12 +3,12 @@ import { Chessboard } from 'react-chessboard'
 import Horizontal from './Horizontal'
 import Vertical from './Vertical'
 
-export default function PawnBoard({ fen, width }) {
+export default function PawnBoard({ fen, width, boardOrientation }) {
   return (
     <div>
-      <Horizontal />
+      <Horizontal orientation={boardOrientation}/>
       <div className='flex'>
-        <Vertical width={width} />
+        <Vertical width={width} orientation={boardOrientation} />
         <div>
           <Chessboard
             id='Pawnboard'
@@ -16,11 +16,12 @@ export default function PawnBoard({ fen, width }) {
             position={fen}
             arePiecesDraggable={false}
             showBoardNotation={false}
+            boardOrientation={boardOrientation ? 'white' : 'black'}
           />
         </div>
-        <Vertical width={width}/>
+        <Vertical width={width} orientation={boardOrientation}/>
       </div>
-      <Horizontal />
+      <Horizontal orientation={boardOrientation}/>
     </div>
   )
 }
