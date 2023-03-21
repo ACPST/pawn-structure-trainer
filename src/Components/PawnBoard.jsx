@@ -6,7 +6,10 @@ import Vertical from './Vertical'
 export default function PawnBoard({ fen, width, boardOrientation }) {
   return (
     <div>
-      <Horizontal orientation={boardOrientation}/>
+      <div className='flex justify-center mb-4'>
+        <input type="text" className='bg-slate-600 rounded-md text-center text-white font-semibold p-2' />
+      </div>
+      <Horizontal orientation={boardOrientation} />
       <div className='flex'>
         <Vertical width={width} orientation={boardOrientation} />
         <div>
@@ -19,9 +22,12 @@ export default function PawnBoard({ fen, width, boardOrientation }) {
             boardOrientation={boardOrientation ? 'white' : 'black'}
           />
         </div>
-        <Vertical width={width} orientation={boardOrientation}/>
+        <Vertical width={width} orientation={boardOrientation} />
       </div>
-      <Horizontal orientation={boardOrientation}/>
+      <Horizontal orientation={boardOrientation} />
+      <div className='flex justify-center mt-4'>
+        <input type="text" className='bg-slate-600 rounded-md text-center text-white font-semibold p-2' />
+      </div>
     </div>
   )
 }
